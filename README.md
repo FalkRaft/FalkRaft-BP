@@ -1,6 +1,9 @@
 # FalkRaft-BP
 This is the BP that builds the features of FalkRaft.
 
+
+
+![pack_icon](https://github.com/FalkRaft/FalkRaft-BP/assets/164064272/cc43b25d-68f3-4b5b-8af9-dc6f0fbbf5c3)
 NOTE: It is still currently in development - alpha. Do not distribute it to other users (except Thomas, Jasper, your other devices and your friends who you have very good trust with in Minecraft technicals). Some things may break if not used properly and you may get content logs.
 
 Functions:
