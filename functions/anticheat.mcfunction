@@ -12,7 +12,6 @@ execute if entity @a[tag=!admin,m=!c] run gamemode default @a[tag=!admin,m=!c]
 
 
 ### anti CBE ###
-
 # Detect redstone blocks and torches around command blocks
 #execute as @a at @s if block ^^^6 redstone_block if block ^^^6 command_block run fill ~-7 ~-7 ~-7 ~7 ~7 ~7 air 0 replace redstone_block
 #execute as @a at @s if block ^^^6 redstone_torch if block ^^^6 command_block run fill ~-7 ~-7 ~-7 ~7 ~7 ~7 air 0 replace redstone_torch
