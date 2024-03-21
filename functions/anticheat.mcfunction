@@ -19,3 +19,11 @@ execute if entity @a[tag=!admin,m=!c] run gamemode default @a[tag=!admin,m=!c]
 # kill any command block minecarts and NPCs around any player without the tag 'admin'
 execute as @a at @s if entity @s[tag=!admin] run kill @e[type=command_block_minecart,r=6]
 execute as @a at @s if entity @s[tag=!admin] run kill @e[type=npc,r=6]
+
+### anti fly ###
+
+# detect if a player is falling or rising
+execute as @a at @s if block ~~-1.3 ~ air run tag @s add falling
+execute as @a at @s if block ~~-0.1 ~ air unless block ~~-1.3 ~ run tag @s add rising
+execute as @a at @s unless block ~~-0.1 ~ air run tag @s remove falling
+execute as @a at @s unless block ~~-1.2 ~ air run tag @s remove rising
