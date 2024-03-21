@@ -20,6 +20,8 @@ execute if entity @a[tag=!admin,m=!c] run gamemode default @a[tag=!admin,m=!c]
 execute as @a at @s if entity @s[tag=!admin] run kill @e[type=command_block_minecart,r=6]
 execute as @a at @s if entity @s[tag=!admin] run kill @e[type=npc,r=6]
 
+
+
 ### anti fly ###
 
 # detect if a player is falling or rising
