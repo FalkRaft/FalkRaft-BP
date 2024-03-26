@@ -26,10 +26,14 @@ Function commands:
 - /function anticheat
 - /function optimizations
 - /function custom_commands/falkraftHelp
-- /function kits/glasscannon(Self)
+- /function kits/glassCannon(Self)
 - /function kits/nodebuff(Self)
 - /function kits/tank(Self)
 - /function kits/crystal(Self)
+- /function kits/clearKit
+- /function staff/fr-op
+- /function staff/fr-vanish (not in use: still a work in progress)
+- /function staff/reportA
 
 Ones in development:
 - animation.json files for loading the function files and thing that function files can’t.
