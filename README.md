@@ -25,7 +25,11 @@ Function commands:
 - /function load
 - /function anticheat
 - /function optimizations
-- /function custom
+- /function custom_commands/falkraftHelp
+- /function kits/glasscannon(Self)
+- /function kits/nodebuff(Self)
+- /function kits/tank(Self)
+- /function kits/crystal(Self)
 
 Ones in development:
 - animation.json files for loading the function files and thing that function files can’t.
