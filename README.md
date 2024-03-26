@@ -13,10 +13,10 @@ Functions:
 		- optimizations
 	- anticheat:
 		- clears the players illegal items without the tag ‘admin’.
-		- items are: command blocks, command block minecarts, 	structure blocks and structure voids, border blocks, and jigsaw 	blocks.
+		- items are: command blocks, command block minecarts, structure blocks and structure voids, border blocks, and jigsaw blocks.
 	- Optimizations:
 		- gives every player with the tag ‘hub’ invisibility to make it easier 	on the graphics card/processor.
-		- gives every player without the tag ‘survworld’ (survival world) 	night vision to avoid lightning recalculation.
+		- gives every player without the tag ‘survworld’ (survival world) night vision to avoid lightning recalculation.
 	- Kits:
   		- all of the kits for fighting.
   		- the ones with 'Self' in the name, execpt for the 'clearKit', because it works on both NPCs and players, only works on the players - ones without 'Self' 		in their name only work for NPCs.
@@ -34,6 +34,9 @@ Function commands:
 - /function staff/fr-op
 - /function staff/fr-vanish (not in use: still a work in progress)
 - /function staff/reportA
+
+How to set up:
+- You don't need to do anything, but add a command block with the command: /function load, in it. (Requirement of command block may change)
 
 Ones in development:
 - animation.json files for loading the function files and thing that function files can’t.
