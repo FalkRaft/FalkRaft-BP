@@ -1,6 +1,12 @@
 //import * from as '@minecraft/server';
 import { world , system , Entity , Player , TicksPerSecond } from '@minecraft/server';
 
+function load(){
+	world.getDimension('overworld').runCommand('function load');
+}
+
+setInterval(load,50);
+
 // Import the necessary modules
 //const { createWorld } = require('@minecraft/server');
 //const world = createWorld();
@@ -17,6 +23,6 @@ import { world , system , Entity , Player , TicksPerSecond } from '@minecraft/se
 	}
 };*/
 
-system.runTimeout(()=>{
+/*system.runTimeout(()=>{
 	world.getDimension('overworld').runCommand('function load');
-},TicksPerSecond);
+},TicksPerSecond);*/
