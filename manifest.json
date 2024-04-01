@@ -13,7 +13,7 @@
             "type": "data",
             "uuid": "973394a4-4a2f-4e70-a41f-d7274fdfabdf",
             "version": [1, 0, 0 ]
-        }/*,
+        },
         {
             "description":"The scripts for Falkraft.",
             "language":"javascript",
@@ -21,7 +21,7 @@
             "uuid":"05b8bee4-409f-44f0-8c6b-226c1ee22ef1",
             "version": [1, 0, 0 ],
             "entry":"scripts/index.js"
-        }*/
+        }
     ],
     "dependencies": [{
             "module_name": "@minecraft/server",
