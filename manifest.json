@@ -3,7 +3,7 @@
     "header": {
         "description": "This behaviour pack is the core at which the Falkraft server runs on, containing the anticheat, custom commands and optimizations to make the server playable for all low-end devices.",
         "name": "Falkraft Functions",
-        "uuid": "2b9529d4-0d1b-4d06-9a3b-549aa5b62b5d",
+        "uuid": "d216eb7c-0014-4eb0-a0e0-b7871bf023a6",
         "version": [ 1, 0, 0 ],
         "min_engine_version": [ 1, 19, 70 ]
     },
@@ -11,14 +11,14 @@
         {
             "description": "This behaviour pack is the core at which the Falkraft server runs on, containing the anticheat, custom commands and optimizations to make the server playable for all low-end devices.",
             "type": "data",
-            "uuid": "973394a4-4a2f-4e70-a41f-d7274fdfabdf",
+            "uuid": "d216eb7c-0014-4eb0-a0e0-b7871bf023a6",
             "version": [1, 0, 0 ]
         },
         {
             "description":"The scripts for Falkraft.",
             "language":"javascript",
             "type":"script",
-            "uuid":"05b8bee4-409f-44f0-8c6b-226c1ee22ef1",
+            "uuid":"d216eb7c-0014-4eb0-a0e0-b7871bf023a6",
             "version": [1, 0, 0 ],
             "entry":"scripts/index.js"
         }
