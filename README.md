@@ -44,5 +44,5 @@ Ones in development:
 
 
 The other function files that are not listed here are the kits functions for PvP, and the FalkRaft ‘help’ command (in development).
-Fell free to test the behaviour pack and/or use the function files for your worlds.
+Feel free to test the behaviour pack and/or use the function files for your worlds.
 If you have a problem with the manifest.json file that is about UUIDs, then you may change them. You can generate one by going to this link: https://www.uuidgenerator.net
