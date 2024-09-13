@@ -1,0 +1,46 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "FalkRaft Knockback Addon",
+        "description": "The FalkRaft KB BP to simulate and make better KB.",
+        "uuid": "8be3546c-81e4-4afe-9eaa-ebcc53583e4d",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            20,
+            50
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "03e383ff-5570-4de6-a8ad-78dd21a9b7b0",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "uuid": "5b56a1d5-ddfb-4f77-9a3d-36b2d090412f",
+            "version": "1.1.1-beta",
+            "entry": "scripts/main.js"
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "1.7.0"
+        }
+    ],
+    "capabilities": [
+        "script_eval"
+    ]
+}          
+     
