@@ -6,7 +6,7 @@ export function commands() {
             switch (msg.message) {
                 case "!ping":
                     msg.cancel = true;
-                    
+                    msg.sender.sendMessage("This is a test...");
                     break;
                 default: break;
             }
