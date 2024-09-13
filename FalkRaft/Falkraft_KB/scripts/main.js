@@ -22,7 +22,7 @@ world.afterEvents.entityHurt.subscribe(
         };
         damageSource.damagingEntity.addEffect(
             "weakness",
-            9, {
+            10, {
                 amplifier: 255,
                 showParticles: false
             }
