@@ -28,7 +28,6 @@ world.afterEvents.entityHurt.subscribe(
             }
         );
         damageSource.damagingEntity.runCommand("playsound note.bell @s ~~~ 0.25");
-        hurtEntity.clearVelocity();
         hurtEntity.applyImpulse(
             {
                 x: newdir.x / 4.25,
