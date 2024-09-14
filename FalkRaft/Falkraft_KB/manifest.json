@@ -3,7 +3,7 @@
     "header": {
         "name": "FalkRaft Knockback Addon",
         "description": "The FalkRaft KB BP to simulate and make better KB.",
-        "uuid": "8be3546c-81e4-4afe-9eaa-ebcc53583e4d",
+        "uuid": "039d195d-0c73-45ae-91e1-eac26807ed0a",
         "version": [
             1,
             0,
@@ -18,7 +18,7 @@
     "modules": [
         {
             "type": "data",
-            "uuid": "03e383ff-5570-4de6-a8ad-78dd21a9b7b0",
+            "uuid": "c4e5089e-6514-4c47-b111-abbe64a5dad5",
             "version": [
                 1,
                 0,
@@ -28,7 +28,7 @@
         {
             "type": "script",
             "language": "javascript",
-            "uuid": "5b56a1d5-ddfb-4f77-9a3d-36b2d090412f",
+            "uuid": "02370bf3-32fa-499e-a833-d4a75003f791",
             "version": "1.1.1-beta",
             "entry": "scripts/main.js"
         }

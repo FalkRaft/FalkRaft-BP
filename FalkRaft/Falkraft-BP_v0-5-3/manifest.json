@@ -3,7 +3,7 @@
     "header": {
         "description": "This behaviour pack is the core at which the FalkRaft server runs on, containing the anticheat, custom commands, and optimizations to make the server playable for all low-end devices, while still stopping hackers from ever joining your server.",
         "name": "FalkRaft Behaviour Pack",
-        "uuid": "7a5fa3f3-3280-4938-9be6-d2ee6803ffd6",
+        "uuid": "5b56a1d5-ddfb-4f77-9a3d-36b2d090412f",
         "version": [
             0,
             5,
@@ -19,7 +19,7 @@
         {
             "description": "The custom commands for FalkRaft, and partly the anticheat, and performance optimisations.",
             "type": "data",
-            "uuid": "e691240d-443a-4acd-b0c5-88980d887e8c",
+            "uuid": "268a8ad1-2f60-439a-bc0b-67321c3bad6e",
             "version": [
                 0,
                 7,
@@ -30,7 +30,7 @@
             "description": "The scripts for FalkRaft, containing the anticheat, and the performance optimisations.",
             "language": "javascript",
             "type": "script",
-            "uuid": "a5d16a38-f159-4a06-9e59-1c5aebcd0376",
+            "uuid": "c5e0fcf0-ae8d-4f2d-b407-b7e39dbe43db",
             "version": [
                 0,
                 3,
