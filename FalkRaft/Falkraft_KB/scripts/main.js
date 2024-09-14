@@ -28,10 +28,14 @@ world.afterEvents.entityHurt.subscribe(
             }
         );
         damageSource.damagingEntity.runCommand("playsound note.bell @s ~~~ 0.25");
+        hurtEntity.getVelocity().x = 0;
+        hurtEntity.getVelocity().y = 0;
+        hurtEntity.getVelocity().z = 0;
+        hurtEntity.clearVelocity(); // Backup
         hurtEntity.applyImpulse(
             {
                 x: newdir.x / 4.25,
-                y: 0.33,
+                y: 0.45,
                 z: newdir.z / 4.25
             }
         );
