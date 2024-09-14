@@ -22,20 +22,20 @@ world.afterEvents.entityHurt.subscribe(
         };
         damageSource.damagingEntity.addEffect(
             "weakness",
-            10, {
+            9, {
                 amplifier: 255,
                 showParticles: false
             }
         );
         damageSource.damagingEntity.runCommand("playsound note.bell @s ~~~ 0.25");
-        hurtEntity.getVelocity().x = 0;
-        hurtEntity.getVelocity().y = 0;
-        hurtEntity.getVelocity().z = 0;
+        hurtEntity.getVelocity().x = 0; // X
+        hurtEntity.getVelocity().y = 0; // Y
+        hurtEntity.getVelocity().z = 0; // Z
         hurtEntity.clearVelocity(); // Backup
         hurtEntity.applyImpulse(
             {
                 x: newdir.x / 4.25,
-                y: 0.45,
+                y: 0.25,
                 z: newdir.z / 4.25
             }
         );
