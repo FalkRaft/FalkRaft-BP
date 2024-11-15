@@ -1,0 +1,1 @@
+tellraw @s {"translate":{"text":"§lFalkraft (for operators, admins and higher) command list with arguments:§r\n§e/function help§r - Lists the commands and shows its arguments if specified.\n§e/function global(un)mute§r - Mutes/Unmutes ALL players in the world.\n§e/execute as <player> run function (un)freeze§r - Freezes/Unfreezes the player targeted.\n"}}

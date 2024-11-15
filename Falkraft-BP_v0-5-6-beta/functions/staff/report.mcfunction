@@ -1,0 +1,2 @@
+tag @s add report
+tellraw @a[tag=admin] {"translate": [{"selector": "@a[tag=report, c=1]"}, {"text": "could be possibly hacking! Please make sure that the player doesn't have any connection or client issues before you ban that player!"}]}

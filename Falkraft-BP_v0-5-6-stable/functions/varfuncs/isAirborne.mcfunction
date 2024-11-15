@@ -1,0 +1,2 @@
+execute as @s at @s if block ~-0.4 ~-0.01 ~-0.4 air if block ~0.4 ~-0.01 ~0.4 air if entity @s[tag=!airborne] run tag @s add airborne
+execute as @s at @s unless block ~-0.4 ~-0.01 ~-0.4 air unless block ~0.4 ~-0.01 ~0.4 air if entity @s[tag=airborne] run tag @s remove airborne
