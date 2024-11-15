@@ -1,2 +1,0 @@
-op @s
-function help
