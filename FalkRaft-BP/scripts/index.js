@@ -11,40 +11,28 @@ system.runInterval(() => {
         player.removeTag("is_jumping");
         player.removeTag("is_flying");
         player.removeTag("is_falling");
-        if (player.isOnGround) {
-            player.addTag("is_onGround");
-        }
-        if (player.isJumping) {
-            player.addTag("is_jumping");
-        }
-        if (player.isFlying) {
-            player.addTag("is_flying");
-        }
-        if (player.isFalling) {
-            player.addTag("is_falling");
-        }
+        if (player.isOnGround) player.addTag("is_onGround");
+        if (player.isJumping) player.addTag("is_jumping");
+        if (player.isFlying) player.addTag("is_flying");
+        if (player.isFalling) player.addTag("is_falling");
     }
 });
 
-world.afterEvents.entityHurt.subscribe((
-    {
-        hurtEntity,
-        damageSource
-    }) => {
+world.afterEvents.entityHurt.subscribe(({ hurtEntity, damageSource }) => {
+    const hitloc = damageSource.damagingEntity.location;
+    const beinghitloc = hurtEntity.location;
+    const direction = {
+        x: beinghitloc.x - hitloc.x,
+        y: beinghitloc.y - hitloc.y,
+        z: beinghitloc.z - hitloc.z
+    };
+    const magnitude = Math.sqrt(Math.pow(direction.x, 2) + Math.pow(direction.z, 2));
+    const newdir = {
+        x: direction.x / magnitude,
+        z: direction.z / magnitude
+    };
     switch (damageSource.cause) {
         case EntityDamageCause.entityAttack: {
-            const hitloc = damageSource.damagingEntity.location;
-            const beinghitloc = hurtEntity.location;
-            const direction = {
-                x: beinghitloc.x - hitloc.x,
-                y: beinghitloc.y - hitloc.y,
-                z: beinghitloc.z - hitloc.z
-            };
-            const magnitude = Math.sqrt(Math.pow(direction.x, 2) + Math.pow(direction.z, 2));
-            const newdir = {
-                x: direction.x / magnitude,
-                z: direction.z / magnitude
-            };
             hurtEntity.applyKnockback(newdir.x, newdir.z, 0.5, 0.5);
         }
         case EntityDamageCause.projectile: {
@@ -52,7 +40,12 @@ world.afterEvents.entityHurt.subscribe((
         }
         default: {
             /// To prevent client-server desync when standing on top of a boat or falsely flying with an elytra.
-            hurtEntity.applyKnockback(0, 0, 0, -63);
+            hurtEntity.applyKnockback(
+                -hurtEntity.getVelocity().x
+                - hurtEntity.getVelocity().z,
+                Math.sqrt(Math.pow(hurtEntity.getVelocity().x, 2) + Math.pow(hurtEntity.getVelocity().z, 2)),
+                hurtEntity.getVelocity().y
+            );
         }
     }
 });
