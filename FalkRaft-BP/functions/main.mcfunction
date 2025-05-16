@@ -1,0 +1,4 @@
+function is_crawling
+function is_moving
+function is_sleeping
+function is_sneaking

@@ -1,0 +1,59 @@
+{
+    "format_version": 2,
+    "metadata": {
+        "authors": [
+            "FalkRaft",
+            "Kubik"
+        ],
+        "generated_with": {
+            "bridge": [
+                "2.7.46"
+            ],
+            "dash": [
+                "0.11.7"
+            ]
+        }
+    },
+    "header": {
+        "name": "FalkRaft BP",
+        "description": "The stable behaviour pack for FalkRaft.",
+        "min_engine_version": [
+            1,
+            13,
+            0
+        ],
+        "uuid": "b7f74ee8-1c2a-4d72-9acb-1e9306ff9d3d",
+        "version": [
+            1,
+            0,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "466863d8-398e-4a7e-9ee2-c326e4a3340b",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "type": "script",
+            "uuid": "2731dd13-bef6-492d-b8b2-68a77a2b4ff0",
+            "version": [
+                1,
+                0,
+                0
+            ],
+            "entry": "scripts/index.js"
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "1.0.0"
+        }
+    ]
+}
