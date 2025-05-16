@@ -8,6 +8,8 @@ const dimensions = {
     end: world.getDimension("the_end")
 };
 
+console.error("Script loaded!");
+
 world.events.tick.subscribe(data => {
     dimensions.overworld.runCommand("function main");
     dimensions.nether.runCommand("function main");
