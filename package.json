@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "@minecraft/server": "^1.14.0-beta.1.21.23-stable"
+    "@minecraft/common": "^1.0.0",
+    "@minecraft/server": "^1.6.0",
+    "@minecraft/vanilla-data": "^1.19.80",
+    "@types/mojang-minecraft": "^0.1.4"
   }
 }

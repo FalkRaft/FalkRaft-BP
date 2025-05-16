@@ -1,26 +1,39 @@
-import { world, system, EntityDamageCause } from "@minecraft/server";
+import * as oldmc from "mojang-minecraft";
 
-system.runInterval(() => {
-    const players = world.getAllPlayers().filter(player => player.isValid);
-    world.getDimension("overworld").runCommand("function main");
-    world.getDimension("nether").runCommand("function main");
-    world.getDimension("the_end").runCommand("function main");
-    for (i = 0; i < players.length; i++) {
-        const player = players[i];
-        player.removeTag("is_onGround");
-        player.removeTag("is_jumping");
-        player.removeTag("is_flying");
-        player.removeTag("is_falling");
-        if (player.isOnGround) player.addTag("is_onGround");
-        if (player.isJumping) player.addTag("is_jumping");
-        if (player.isFlying) player.addTag("is_flying");
-        if (player.isFalling) player.addTag("is_falling");
+const world = oldmc.world;
+
+world.events.tick.subscribe(data => {
+    const dimensions = {
+        overworld: world.getDimension("overworld"),
+        nether: world.getDimension("nether"),
+        end: world.getDimension("the_end")
+    };
+    dimensions.overworld.runCommand("function main");
+    dimensions.nether.runCommand("function main");
+    dimensions.end.runCommand("function main");
+    if (data.currentTick % 100 == 0) {
+        console.error(`Tick: ${data.currentTick}\tDeltaTime: ${data.deltaTime}`);
+        dimensions.overworld.runCommand(`say Tick: ${data.currentTick}\tDeltaTime: ${data.deltaTime}`);
+        dimensions.nether.runCommand(`say Tick: ${data.currentTick}\tDeltaTime: ${data.deltaTime}`);
+        dimensions.end.runCommand(`say Tick: ${data.currentTick}\tDeltaTime: ${data.deltaTime}`);
+    }
+    const players = world.getPlayers();
+    for (const player of players) {
+        const horizontalSpeed = player.velocity.x + player.velocity.z;
+        player.removeTag("moving");
+        player.removeTag("walking");
+        player.removeTag("sprinting");
+        player.removeTag("sneaking");
+        if (horizontalSpeed * 20 < 0 || horizontalSpeed * 20 > 0) player.addTag("moving");
+        if (horizontalSpeed * 20 < 4.2 || horizontalSpeed * 20 > -4.2) player.addTag("walking");
+        if (horizontalSpeed * 20 < 5.5 || horizontalSpeed * 20 > -5.5) player.addTag("sprinting");
+        if (player.isSneaking) player.addTag("sneaking");
     }
 });
 
-world.afterEvents.entityHurt.subscribe(({ hurtEntity, damageSource }) => {
-    const hitloc = damageSource.damagingEntity.location;
-    const beinghitloc = hurtEntity.location;
+world.events.entityHit.subscribe(data => {
+    const hitloc = data.entity.location;
+    const beinghitloc = data.hitEntity.location;
     const direction = {
         x: beinghitloc.x - hitloc.x,
         y: beinghitloc.y - hitloc.y,
@@ -31,21 +44,8 @@ world.afterEvents.entityHurt.subscribe(({ hurtEntity, damageSource }) => {
         x: direction.x / magnitude,
         z: direction.z / magnitude
     };
-    switch (damageSource.cause) {
-        case EntityDamageCause.entityAttack: {
-            hurtEntity.applyKnockback(newdir.x, newdir.z, 0.5, 0.5);
-        }
-        case EntityDamageCause.projectile: {
-            damageSource.damagingEntity.runCommand("playsound note.bell @s ~~~ 0.25");
-        }
-        default: {
-            /// To prevent client-server desync when standing on top of a boat or falsely flying with an elytra.
-            hurtEntity.applyKnockback(
-                -hurtEntity.getVelocity().x
-                - hurtEntity.getVelocity().z,
-                Math.sqrt(Math.pow(hurtEntity.getVelocity().x, 2) + Math.pow(hurtEntity.getVelocity().z, 2)),
-                hurtEntity.getVelocity().y
-            );
-        }
-    }
+    let KBStrength = 0.5;
+    if (data.entity.hasTag("sprinting")) KBStrength += 1.05;
+    data.hitEntity.setVelocity({x: newdir.x * KBStrength, y: KBStrength, z: newdir.z * KBStrength});
+    data.entity.runCommand("playsound note.bell @s ~~~ 0.1");
 });
