@@ -2,12 +2,13 @@ import * as oldmc from "mojang-minecraft";
 
 const world = oldmc.world;
 
+const dimensions = {
+    overworld: world.getDimension("overworld"),
+    nether: world.getDimension("nether"),
+    end: world.getDimension("the_end")
+};
+
 world.events.tick.subscribe(data => {
-    const dimensions = {
-        overworld: world.getDimension("overworld"),
-        nether: world.getDimension("nether"),
-        end: world.getDimension("the_end")
-    };
     dimensions.overworld.runCommand("function main");
     dimensions.nether.runCommand("function main");
     dimensions.end.runCommand("function main");
@@ -48,4 +49,18 @@ world.events.entityHit.subscribe(data => {
     if (data.entity.hasTag("sprinting")) KBStrength += 1.05;
     data.hitEntity.setVelocity({x: newdir.x * KBStrength, y: KBStrength, z: newdir.z * KBStrength});
     data.entity.runCommand("playsound note.bell @s ~~~ 0.1");
+});
+
+world.events.playerJoin.subscribe(data => {
+    console.error(`Player ${data.player.name} joined. Player ID: ${data.player.id}`);
+    dimensions.overworld.runCommand(`say Player ${data.player.name} joined. Player ID: ${data.player.id}`);
+    dimensions.nether.runCommand(`say Player ${data.player.name} joined. Player ID: ${data.player.id}`);
+    dimensions.end.runCommand(`say Player ${data.player.name} joined. Player ID: ${data.player.id}`);
+});
+
+world.events.playerLeave.subscribe(data => {
+    console.error(`Player ${data.playerName} left.`);
+    dimensions.overworld.runCommand(`say Player ${data.playerName} left.`);
+    dimensions.nether.runCommand(`say Player ${data.playerName} left.`);
+    dimensions.end.runCommand(`say Player ${data.playerName} left.`);
 });
